@@ -28,4 +28,4 @@ map({ "n", "t" }, "<leader>i", function()
 end, { desc = "Terminal toggle floating term" })
 
 -- Hop
-map("n", "<leader>hw", "<cmd>HopWord<cr>", { desc = "Hop HopWord" })
+map("n", "<leader>jw", "<cmd>HopWord<cr>", { desc = "Hop HopWord" })
