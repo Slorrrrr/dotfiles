@@ -1,5 +1,12 @@
 return {
   {
+    "smoka7/hop.nvim",
+    version = "*",
+    event = "BufRead",
+    opts = require "configs.hop",
+  },
+
+  {
     "stevearc/conform.nvim",
     event = "BufWritePre",
     opts = require "configs.conform",
