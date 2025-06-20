@@ -30,3 +30,22 @@ end, { desc = "Terminal toggle floating term" })
 
 -- Hop
 map("n", "<leader>jw", "<cmd>HopWord<cr>", { desc = "Hop HopWord" })
+
+-- Neotest
+local neotest = require "neotest"
+
+map("n", "<leader>nt", function()
+  neotest.run.run()
+end, { desc = "Neotest: Run nearest test" })
+
+map("n", "<leader>nf", function()
+  neotest.run.run(vim.fn.expand "%")
+end, { desc = "Neotest: Run current file tests" })
+
+map("n", "<leader>ng", function()
+  neotest.summary.toggle()
+end, { desc = "Neotest: Toggle summary window" })
+
+map("n", "<leader>no", function()
+  neotest.output.open { enter = true }
+end, { desc = "Neotest: Open test output" })
