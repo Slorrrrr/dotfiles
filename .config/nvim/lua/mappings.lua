@@ -11,6 +11,7 @@ map("n", "<leader>ss", ":split<CR>", { desc = "Split screen horizontal" })
 -- LSP
 map("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "LSP hover" })
 map("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { desc = "LSP go to references" })
+map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", { desc = "LSP go to implementation" })
 map("n", "<leader>fd", function()
   vim.diagnostic.config { virtual_text = true }
   print "Virtual text for errors ENABLED"
