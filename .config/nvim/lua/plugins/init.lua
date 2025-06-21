@@ -76,4 +76,12 @@ return {
       "nvim-lua/plenary.nvim",
     },
   },
+
+  {
+    "yanskun/gotests.nvim",
+    ft = "go",
+    config = function()
+      require("gotests").setup()
+    end,
+  },
 }

@@ -52,3 +52,8 @@ end, { desc = "Neotest: Open test output" })
 
 -- LazyGit
 map("n", "<leader>lg", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
+
+-- Gotests
+
+map("n", "<leader>gt", "<cmd>GoTests<cr>", { desc = "Gotests generate test to function" })
+map("n", "<leader>ga", "<cmd>GoTestsAll<cr>", { desc = "Gotests generate test to all function" })

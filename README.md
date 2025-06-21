@@ -6,6 +6,9 @@ Requirements:
 - [Neovim 0.11](https://github.com/neovim/neovim/releases/tag/stable)
 - [Nerd Font](https://www.nerdfonts.com/) as your terminal font.
 - [Ripgrep](https://github.com/BurntSushi/ripgrep) is required for grep searching with Telescope (OPTIONAL).
+- [gotests](https://github.com/cweill/gotests) binary is required for [gotests.nvim](https://github.com/yanskun/gotests.nvim):
+  `go install github.com/cweill/gotests/gotests@latest`
+
 <img width="1465" alt="image" src="https://github.com/user-attachments/assets/1e625496-b2a5-4bb8-91ed-80402beaafe9" />
 
 ## Telegram
