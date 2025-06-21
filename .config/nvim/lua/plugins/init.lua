@@ -48,6 +48,7 @@ return {
       "mfussenegger/nvim-dap",
     },
     config = function()
+      require "configs.dap"
       require("dap-go").setup()
     end,
   },

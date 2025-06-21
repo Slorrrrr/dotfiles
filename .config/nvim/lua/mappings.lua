@@ -54,6 +54,53 @@ end, { desc = "Neotest: Open test output" })
 map("n", "<leader>lg", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
 
 -- Gotests
-
 map("n", "<leader>gt", "<cmd>GoTests<cr>", { desc = "Gotests generate test to function" })
 map("n", "<leader>ga", "<cmd>GoTestsAll<cr>", { desc = "Gotests generate test to all function" })
+
+-- DAP
+local dap = require "dap"
+local dap_go = require "dap-go"
+local widgets = require "dap.ui.widgets"
+
+map("n", "<leader>dc", function()
+  dap.continue()
+end, { desc = "DAP continue" })
+
+map("n", "<leader>dt", function()
+  dap_go.debug_test()
+end, { desc = "DAP debug test" })
+
+map("n", "<leader>do", function()
+  dap.step_over()
+end, { desc = "DAP step over" })
+
+map("n", "<leader>di", function()
+  dap.step_into()
+end, { desc = "DAP step into" })
+
+map("n", "<leader>ds", function()
+  dap.step_out()
+end, { desc = "DAP step out" })
+
+map("n", "<leader>db", function()
+  dap.toggle_breakpoint()
+end, { desc = "DAP toggle breakpoint" })
+
+map("n", "<leader>dh", function()
+  widgets.hover()
+end, { desc = "DAP hover" })
+
+map("n", "<leader>df", function()
+  widgets.centered_float(widgets.frames)
+end, { desc = "DAP frames" })
+
+map("n", "<leader>dv", function()
+  widgets.centered_float(widgets.scopes)
+end, { desc = "DAP scope" })
+
+map("n", "<leader>dv", "<cmd>DapToggleRepl<cr>", { desc = "DAP open REPL" })
+
+map("n", "<leader>dui", function()
+  local sidebar = widgets.sidebar(widgets.scopes)
+  sidebar.open()
+end, { desc = "DAP open debugging sidebar" })
