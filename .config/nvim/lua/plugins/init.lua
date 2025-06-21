@@ -84,4 +84,8 @@ return {
       require("gotests").setup()
     end,
   },
+  {
+    "folke/which-key.nvim",
+    lazy = false,
+  },
 }
