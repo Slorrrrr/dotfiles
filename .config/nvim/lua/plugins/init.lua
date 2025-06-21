@@ -65,4 +65,15 @@ return {
       require "configs.neotest"
     end,
   },
+
+  {
+    "kdheepak/lazygit.nvim",
+    lazy = true,
+    cmd = {
+      "LazyGit",
+    },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+  },
 }

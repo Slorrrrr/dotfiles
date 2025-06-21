@@ -49,3 +49,6 @@ end, { desc = "Neotest: Toggle summary window" })
 map("n", "<leader>no", function()
   neotest.output.open { enter = true }
 end, { desc = "Neotest: Open test output" })
+
+-- LazyGit
+map("n", "<leader>lg", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
