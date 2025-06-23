@@ -30,9 +30,9 @@ map("n", "<leader>dd", function()
 end, { desc = "LSP virtual text disable for errors" })
 
 -- NvChad
-map({ "n", "t" }, "<leader>i", function()
-  require("nvchad.term").toggle { pos = "float", id = "floatTerm" }
-end, { desc = "Terminal toggle floating term" })
+map({ "n" }, "<leader>i", function()
+  require("nvchad.term").toggle { pos = "float", id = "floatterm" }
+end, { desc = "terminal toggle floating term" })
 
 -- Hop
 map("n", "<leader>jw", "<cmd>HopWord<cr>", { desc = "Hop HopWord" })

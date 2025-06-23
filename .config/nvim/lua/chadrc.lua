@@ -20,10 +20,9 @@ M.ui = {
 
 M.term = {
   float = {
-    -- relative = ""
     width = 0.8,
     height = 0.7,
-    row = 0.15,
+    row = 0.12,
     col = 0.1,
     border = "rounded",
   },
