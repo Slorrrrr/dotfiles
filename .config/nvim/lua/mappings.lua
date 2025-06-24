@@ -18,6 +18,8 @@ end, { desc = "LSP hover" })
 
 map("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { desc = "LSP go to references" })
 map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", { desc = "LSP go to implementation" })
+map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "LSP go to definition" })
+
 map("n", "<leader>fd", function()
   vim.diagnostic.config { virtual_text = true }
   print "Virtual text for errors ENABLED"
@@ -110,3 +112,8 @@ map("n", "<leader>dui", function()
   local sidebar = widgets.sidebar(widgets.scopes)
   sidebar.open()
 end, { desc = "DAP open debugging sidebar" })
+
+-- Telescope
+map("n", "<leader>gr", "<cmd>Telescope lsp_references<CR>", { desc = "Telescope LSP go to references" })
+map("n", "<leader>gi", "<cmd>Telescope lsp_implementations<CR>", { desc = "Telescope LSP go to implementations" })
+map("n", "<leader>gd", "<cmd>Telescope lsp_definitions<CR>", { desc = "Telescope go to defenition" })
