@@ -36,6 +36,10 @@ map({ "n" }, "<leader>i", function()
   require("nvchad.term").toggle { pos = "float", id = "floatterm" }
 end, { desc = "terminal toggle floating term" })
 
+map({ "n" }, "<leader>o", function()
+  require("nvchad.term").toggle { pos = "float", id = "floatterm2" }
+end, { desc = "terminal toggle floating term 2" })
+
 -- Hop
 map("n", "<leader>jw", "<cmd>HopWord<cr>", { desc = "Hop HopWord" })
 
@@ -74,9 +78,36 @@ map("n", "<leader>dc", function()
   dap.continue()
 end, { desc = "DAP continue" })
 
+-- map("n", "<leader>dca", function()
+--   vim.ui.input({ prompt = "Package args: " }, function(input)
+--     if input then
+--       local args = vim.split(input, " ")
+--       dap.run {
+--         type = "go",
+--         name = "Debug Package (Arguments)",
+--         request = "launch",
+--         program = "${fileDirname}",
+--         args = args,
+--         outputMode = "remote",
+--       }
+--       print("Running package with args: " .. input)
+--     end
+--   end)
+-- end, { desc = "DAP debug package with arguments" })
+
 map("n", "<leader>dt", function()
   dap_go.debug_test()
 end, { desc = "DAP debug test" })
+
+map("n", "<leader>dta", function()
+  vim.ui.input({ prompt = "Test args: " }, function(input)
+    if input then
+      local args = vim.split(input, " ")
+      dap_go.debug_test { args = args }
+      print("Test args set: " .. input)
+    end
+  end)
+end, { desc = "DAP debug test with arguments" })
 
 map("n", "<leader>do", function()
   dap.step_over()
@@ -112,6 +143,47 @@ map("n", "<leader>dui", function()
   local sidebar = widgets.sidebar(widgets.scopes)
   sidebar.open()
 end, { desc = "DAP open debugging sidebar" })
+
+-- DAP Arguments
+map("n", "<leader>dsa", function()
+  vim.ui.input({ prompt = "Package args: " }, function(input)
+    if input then
+      local args = vim.split(input, " ")
+      for _, config in ipairs(dap.configurations.go) do
+        if config.name == "Debug Package" then
+          config.args = args
+          print("Args set for Debug Package: " .. input)
+          return
+        end
+      end
+      print "Debug Package configuration not found"
+    end
+  end)
+end, { desc = "DAP set arguments for Debug Package" })
+
+map("n", "<leader>das", function()
+  print "Go DAP configurations:"
+  for i, config in ipairs(dap.configurations.go) do
+    print(
+      string.format(
+        "%d. %s: %s",
+        i,
+        config.name or "unnamed",
+        type(config.args) == "function" and "get_arguments()" or vim.inspect(config.args or {})
+      )
+    )
+  end
+end, { desc = "DAP show arguments" })
+
+map("n", "<leader>d0", function()
+  for _, config in ipairs(dap.configurations.go) do
+    if config.name == "Debug Package" then
+      config.args = {}
+      print "Args cleared for Debug Package"
+      return
+    end
+  end
+end, { desc = "DAP clear arguments for Debug Package" })
 
 -- Telescope
 map("n", "<leader>gr", "<cmd>Telescope lsp_references<CR>", { desc = "Telescope LSP go to references" })

@@ -89,4 +89,8 @@ return {
     "folke/which-key.nvim",
     lazy = false,
   },
+  {
+    "stevearc/dressing.nvim",
+    lazy = true,
+  },
 }
